@@ -1,0 +1,70 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "datafact-covid19"
+		},
+		"ecdc_from_git_repo_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "@{linkedService().sourceBaseURL}"
+		},
+		"ls_adls2_pop_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsg2covid19sa.dfs.core.windows.net/"
+		},
+		"ls_blob_popula_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://adlsg2covid19sa.blob.core.windows.net/"
+		},
+		"Event_trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/8912b98c-fb84-431d-aac7-fe3479709ee9/resourceGroups/covid-19/providers/Microsoft.Storage/storageAccounts/adlsg2covid19sa"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "datafact-covid19_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ecdc_from_git_repo_properties_typeProperties_url": {
+						"value": "[parameters('ecdc_from_git_repo_properties_typeProperties_url')]"
+					},
+					"ls_adls2_pop_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls2_pop_properties_typeProperties_url')]"
+					},
+					"ls_blob_popula_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('ls_blob_popula_properties_typeProperties_serviceEndpoint')]"
+					},
+					"Event_trigger_properties_typeProperties_scope": {
+						"value": "[parameters('Event_trigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
