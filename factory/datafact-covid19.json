@@ -1,0 +1,9 @@
+{
+	"name": "datafact-covid19",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "588d68c4-713d-469c-9e6d-47fd1737b4d5",
+		"tenantId": "1d21961a-fac3-4f82-8f2b-1ed687308c9f"
+	}
+}
