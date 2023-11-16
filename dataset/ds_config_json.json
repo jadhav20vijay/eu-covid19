@@ -1,0 +1,20 @@
+{
+	"name": "ds_config_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls2_pop",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "githubusercontent_ecdc_file_list.json",
+				"fileSystem": "config"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
