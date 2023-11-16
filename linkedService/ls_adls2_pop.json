@@ -1,0 +1,11 @@
+{
+	"name": "ls_adls2_pop",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://adlsg2covid19sa.dfs.core.windows.net/"
+		}
+	}
+}
