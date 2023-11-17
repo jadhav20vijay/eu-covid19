@@ -58,13 +58,33 @@
 					},
 					"ls_blob_popula_properties_typeProperties_serviceEndpoint": {
 						"value": "[parameters('ls_blob_popula_properties_typeProperties_serviceEndpoint')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "datafact-covid19_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
 					},
 					"Event_trigger_properties_typeProperties_scope": {
 						"value": "[parameters('Event_trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'datafact-covid19_ArmTemplate_0')]"
+			]
 		}
 	]
 }
