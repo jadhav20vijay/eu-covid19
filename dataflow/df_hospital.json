@@ -20,7 +20,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "ds_week_lookup",
+						"referenceName": "ds_date_lookup",
 						"type": "DatasetReference"
 					},
 					"name": "WeekYear"
@@ -29,14 +29,14 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "ds_processed_hospital",
+						"referenceName": "ds_processed_hospital_daily",
 						"type": "DatasetReference"
 					},
 					"name": "sinkDaily"
 				},
 				{
 					"dataset": {
-						"referenceName": "ds_processed_hospital",
+						"referenceName": "ds_processed_hospital_weekly",
 						"type": "DatasetReference"
 					},
 					"name": "sinkWeekly"
@@ -193,7 +193,7 @@
 				"          population,",
 				"          reported_date = date,",
 				"          hospital_occupancy_count = {Daily hospital occupancy_count},",
-				"          ICU_occupancy_count = {Daily ICU occupancy_count},",
+				"          icu_occupancy_count = {Daily ICU occupancy_count},",
 				"          source",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
@@ -207,7 +207,7 @@
 				"          week_start_date,",
 				"          week_end_date,",
 				"          new_hospital_admissions_per_100k_count = {Weekly new hospital admissions per 100k_count},",
-				"          new_ICU_admissions_per_100k_count = {Weekly new ICU admissions per 100k_count},",
+				"          new_icu_admissions_per_100k_count = {Weekly new ICU admissions per 100k_count},",
 				"          source",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",

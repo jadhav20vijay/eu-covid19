@@ -1,5 +1,5 @@
 {
-	"name": "ds_country_lookup",
+	"name": "ds_processed_hospital_weekly",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adls2_pop",
@@ -10,9 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "country_lookup.csv",
-				"folderPath": "dim_country",
-				"fileSystem": "lookup"
+				"folderPath": "ecdc/hospital_weekly",
+				"fileSystem": "processed"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
