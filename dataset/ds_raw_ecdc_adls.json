@@ -1,20 +1,29 @@
 {
-	"name": "ds_processed_cases_death",
+	"name": "ds_raw_ecdc_adls",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adls2_pop",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"sinkFileName": {
+				"type": "string"
+			}
+		},
 		"folder": {
-			"name": "process"
+			"name": "raw"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "ecdc/cases_deaths",
-				"fileSystem": "processed"
+				"fileName": {
+					"value": "@dataset().sinkFileName",
+					"type": "Expression"
+				},
+				"folderPath": "ecdc",
+				"fileSystem": "raw"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
