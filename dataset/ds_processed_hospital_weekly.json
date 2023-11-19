@@ -5,6 +5,9 @@
 			"referenceName": "ls_adls2_pop",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "process"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
